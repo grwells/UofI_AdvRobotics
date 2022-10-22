@@ -2,18 +2,18 @@
 
 | Topic | Description |  Fields | Example | 
 | :---: | :---: | :---: | :---: | 
-| irobot_create3_swarm/gcs_pose/<robot_name> | The robot's absolute position(X and Y) and rotation in the GCS coordinate system, relative to the origin. | `x`(millimeters), `y`(millimeters), `rotation`(quaternion) | `{"x": 43, "y":450, "rotation":{"x":0.45, "y":0.60, "z":0.60, "w":1}}` | 
-| irobot_create3_swarm/robot_status/<robot_name> | A robot's status, from the set of robot states defined below. | `state` | `{"state": "MOVING"}` |
-| irobot_create3_swarm/velocity/<robot_name> | Velocity of the robot in meters/second. | `velocity`(m/s) | `{"velocity": 0.3}` |
-| irobot_create3_swarm/acceleration/<robot_name> | Acceleration of the robot in meters/second^2. | `acceleration`(m/s^2) | `{"acceleration": 0.2}`
+| irobot_create3_swarm/gcs_pose/<robot_id> | The robot's absolute position and rotation in the GCS coordinate system, relative to the origin (0,0). | **pose**(geometry_msgs/PoseWithCovariance), **twist**(geometry_msgs/TwistWithCovariance) and all sub-fields of these two objects. | _{"pose":{<PoseWithCovariance object>},"twist":{<TwistWithCovariance object>}}_ | 
+| irobot_create3_swarm/robot_status/<robot_id> | A robot's status, from the set of robot states defined below. | **state**(uint8) | _{"state": PERAMBULATING}_|
+| irobot_create3_swarm/robot_hazards/<robot_id> | The hazards detected by the robot. | **detections**(irobot_create3_msgs/HazardDetection[]) | _{"detections": [<detection>]}_ | 
 
 ### Robot States
+The states below are `uint8` values.
 | State | Description | 
 | :---: | :---: |
-| `OCCLUDED` | Robot is not moving, can't decide where to go, can't see, or is lost. | 
-| `PERAMBULATING` | Robot may or may not be moving, but should be expected to change pose soon. | 
-| `CONCUSSED` | Robot is suffering from head trauma and does not know where it is. Send immediate medical assistance. | 
+| `OCCLUDED` | Robot is not moving, can't decide where to go, can't see, or is lost. Set if the robot's covariance is high, but it is still moving towards a target. | 
+| `PERAMBULATING` | Robot may or may not be moving, but should be expected to change pose soon. Should only be set if the robot has a destination set and is moving purposefully towards it. | 
+| `CONCUSSED` | Robot is suffering from head trauma and does not know where it is. Send immediate medical assistance. Set if the robot's covariance is unusually high and it is not moving anymore. | 
 | `DYING` | Robot expects to go offline soon and since it does not know what happens after this life - being just a lowly robot - it wants the others to know where it died so they can go recover the body. |
-| `R&R` | Robot is at home, sleeping or watching netflix. Do not disturb except in case of national emergency. | 
-| `ALIENS!` | Robot is or has been abducted. Will be very confused and disoriented after waking up. |
+| `R&R` | Robot is at home, sleeping or watching netflix. Do not disturb except in case of national emergency. Set when the robot is fully docked. | 
+| `ALIENS!` | Robot is or has been abducted. Will be very confused and disoriented after waking up. Set if the robot has been kidnapped. |
 

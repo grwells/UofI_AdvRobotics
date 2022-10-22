@@ -1,7 +1,7 @@
-# iRobot Create3 Coordinate System Definition
+# Garrett Coordinate System Definition
 For the coordinate system we will use the general X-Y axis Cartesian Coordinate System.
 
-![xy_plane.png](xy_plane)
+![xy_plane.png](xy_plane.png)
 
 | Details | Description | 
 | :---: | :---: | 
