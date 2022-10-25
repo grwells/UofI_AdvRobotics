@@ -10,10 +10,10 @@
 The states below are `uint8` values.
 | State | Description | 
 | :---: | :---: |
-| `OCCLUDED` | Robot is not moving, can't decide where to go, can't see, or is lost. Set if the robot's covariance is high, but it is still moving towards a target. | 
-| `PERAMBULATING` | Robot may or may not be moving, but should be expected to change pose soon. Should only be set if the robot has a destination set and is moving purposefully towards it. | 
-| `CONCUSSED` | Robot is suffering from head trauma and does not know where it is. Send immediate medical assistance. Set if the robot's covariance is unusually high and it is not moving anymore. | 
-| `DYING` | Robot expects to go offline soon and since it does not know what happens after this life - being just a lowly robot - it wants the others to know where it died so they can go recover the body. |
-| `R&R` | Robot is at home, sleeping or watching netflix. Do not disturb except in case of national emergency. Set when the robot is fully docked. | 
-| `ALIENS!` | Robot is or has been abducted. Will be very confused and disoriented after waking up. Set if the robot has been kidnapped. |
+| `OCCLUDED`=0 | Robot is not moving, can't decide where to go, can't see, or is lost. Set if the robot's covariance is high, but it is still moving towards a target. | 
+| `PERAMBULATING`=1 | Robot may or may not be moving, but should be expected to change pose soon. Should only be set if the robot has a destination set and is moving purposefully towards it. | 
+| `CONCUSSED`=2 | Robot is suffering from head trauma and does not know where it is. Send immediate medical assistance. Set if the robot's covariance is unusually high and it is not moving anymore. | 
+| `DYING`=3 | Robot expects to go offline soon and since it does not know what happens after this life - being just a lowly robot - it wants the others to know where it died so they can go recover the body. |
+| `R&R`4= | Robot is at home, sleeping or watching netflix. Do not disturb except in case of national emergency. Set when the robot is fully docked. | 
+| `ALIENS!`=5 | Robot is or has been abducted. Will be very confused and disoriented after waking up. Set if the robot has been kidnapped. |
 
