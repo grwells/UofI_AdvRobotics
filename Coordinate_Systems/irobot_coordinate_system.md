@@ -28,3 +28,6 @@ Reset your robot pose to the coordinates below after undocking. Use the same rob
 | #2 | (0, 0.642) | 
 | #3 | (0, 1.284) | 
 | #4 | (0, 1.926) | 
+
+## Robot Bounding Box
+The box within which the robots are to navigate will be defined by these points: (0,-0.3), (0,2.3), (2, -0.3), (2, 2.3).
