@@ -2,9 +2,14 @@
 
 | Topic | Description |  Fields | Example | 
 | :---: | :---: | :---: | :---: | 
-| irobot_create3_swarm/gcs_pose/<robot_id> | The robot's absolute position and rotation in the GCS coordinate system, relative to the origin (0,0). | **pose**(geometry_msgs/PoseWithCovariance), **twist**(geometry_msgs/TwistWithCovariance) and all sub-fields of these two objects. | _{"pose":{PoseWithCovariance object},"twist":{TwistWithCovariance object}}_ | 
+| irobot_create3_swarm/pose/<robot_id> | The robot's absolute position and rotation in the iRobot Create3 coordinate system, relative to the origin (0,0), with all position measurements in meters. | **pose**(geometry_msgs/Pose), **twist**(geometry_msgs/Twist) and all sub-fields of these two objects. | _{"pose":{Pose object},"twist":{Twist object}}_ | 
 | irobot_create3_swarm/robot_status/<robot_id> | A robot's status, from the set of robot states defined below. | **state**(uint8) | _{"state": PERAMBULATING}_|
 | irobot_create3_swarm/robot_hazards/<robot_id> | The hazards detected by the robot. | **detections**(irobot_create3_msgs/HazardDetection[]) | _{"detections": [BUMP, CLIFF, STALL]}_ | 
+
+### Topic Publishing Rates
+The `irobot_create3_swarm/pose/[robot_id]` and `irobot_create3_swarm/robot_hazards/[robot_id]` should be published to as frequently as possible to keep all other robots up to date.
+The robot status topic, however, is less important. We only need to know what it is when it changes, so publishing frequency can be flexible to what you want. It would be beneficial to
+limit it somehow to reduce bandwidth consumption on the network.
 
 ### Robot States
 The states below are `uint8` values.
