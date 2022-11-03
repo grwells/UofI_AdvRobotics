@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 # Imports.
 import json
 import paho.mqtt.client as mqtt
@@ -7,9 +8,9 @@ import argparse
 
 
 # Main function.
-def main(mqtt_broker: str, location: tuple):
+def main(buoy_id: str, mqtt_broker: str, location: tuple):
     # Set variables.
-    namespace = 'dummy'
+    namespace = buoy_id
     server = mqtt_broker
     port = 1883
     x_pos = location[0]
@@ -63,6 +64,13 @@ if __name__ == '__main__':
                         prog='TestBuoy',
                         description='creates a buoy at point (x,y) which acts as an imaginary obstacle')
 
+    parser.add_argument('-id',
+                        '--buoy-id',
+                        action='store',
+                        dest='id',
+                        default='dummy',
+                        help='assign a custom buoy id string like \'dummy\' to support differentiation of multiple buoys in one space')
+
     parser.add_argument('-b', 
                         '--broker', 
                         action='store', 
@@ -81,5 +89,5 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     args.coordinate = tuple(args.coordinate)
-    print(f'Creating Buoy @ {args.coordinate} \nMQTT Broker: {args.mqtt_broker}')
-    main(mqtt_broker=args.mqtt_broker, location=args.coordinate)
+    print(f'Creating Buoy [{args.id}] @ {args.coordinate} \nMQTT Broker: {args.mqtt_broker}')
+    main(buoy_id=args.id, mqtt_broker=args.mqtt_broker, location=args.coordinate)
