@@ -65,6 +65,7 @@ Although not short, these installation steps will provide all the tools needed t
 ##### Install CycloneDDS
 CycloneDDS operates as the ROS2 middleware(RMW), which manages network communication between ROS2 nodes.
 1. Run:
+
         sudo apt install ros-humble-rmw-cyclonedds-cpp
 
 2. Next, instruct ROS2 to use CycloneDDS by exporting RMW_IMPLEMENTATION to to your system variables:
