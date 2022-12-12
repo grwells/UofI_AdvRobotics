@@ -95,7 +95,7 @@ The steps below are necessary for coding your own ROS2 nodes and compiling them 
 ##### Installation Verification
 _**TO VERIFY:**_ run `ros2 topic list`. You should see something like: 
 
-		![topic list output](topic_list.png)
+![topic list output](topic_list.png)
 
 If there fewer outputs, you may have a network problem blocking connection to the robot. Possible solutions may also include sourcing a ROS2 setup script after building the project (see `install/setup.sh` or `install/local_setup.sh`). 
 Also make sure that your robot is connected to the same network as the laptop/machine you are running the commmand on.
