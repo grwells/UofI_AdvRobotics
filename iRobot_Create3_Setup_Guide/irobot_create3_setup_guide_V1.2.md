@@ -63,7 +63,7 @@ Although not short, these installation steps will provide all the tools needed t
 		sudo apt install ros-humble-desktop
 
 ##### Install CycloneDDS
-CycloneDDS operates as the ROS2 middleware(RMW), which manages network communication between ROS2 nodes.
+CycloneDDS operates as the ROS2 middle-ware(RMW), which manages network communication between ROS2 nodes.
 1. Run:
 
         sudo apt install ros-humble-rmw-cyclonedds-cpp
@@ -118,7 +118,7 @@ But this will:
 A summary of the configuration in that guide is included below (no firmware update):
 
 1. With robot docked, press and hold buttons on either side of the power button until light turns blue and you hear a beep.
-2. Connnect to `Create-XXXX` network from laptop/desktop.
+2. Connect to `Create-XXXX` network from laptop/desktop.
 3. Open browser and navigate to access point(AP) `192.168.10.1`. This AP can later be reached if you know the IP address of the robot, this can be found by scanning the network with [Angry IP](https://angryip.org/), enabling the MAC address, MAC vendor fetchers, and looking for device from 'iRobot' vendor.
 4. Once AP is reached, navigate to the 'Connect' page and use settings to connect to your desired network. 
 5. Finally, navigate to the Application configuration page and change namespace field to `/create3-XXXX` where `XXXX` matches the last four digits of the network SSID broadcast by the robot. In reality, this namespace could be anything you want, but the convention is for easy of use in CS453/553.
