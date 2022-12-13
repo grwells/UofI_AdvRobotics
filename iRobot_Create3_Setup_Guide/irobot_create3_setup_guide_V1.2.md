@@ -13,7 +13,7 @@ There are three main steps in this guide:
 
 The steps may be performed in parallel or individually, and are fairly independent of each other. Verifying installation for steps two and three require having ROS2 installed first, so that is the recommended starting point here.
 
-### Extra Resources Learning ROS2
+### Extra Resources for Learning ROS2
 If this is your first time using ROS2, you will likely want to read through/follow the beginner tutorials provided by ROS2 which introduce the `ros2` command line interface, package system, and `colcon` build system. These tutorials are linked in the [documentation links](#documentation-links) below and are most helpful after installing ROS2. ROS2 is **not** an intuitive system at first glance with several quirks (cough _sourcing_ cough _workspaces_ cough) that may make it seem like black magic, but the tutorials and documentation go a long way towards pulling back to the curtain, so to speak.
 
 
@@ -108,7 +108,7 @@ _**TO VERIFY:**_ run `ros2 topic list`. You should see something like:
 
 ![topic list output](topic_list.png)
 
-If there fewer outputs, follow [the robot configuration guide](#irobot-create3-configuration-guide) to connect the robot to your network and update the firmware.
+You should **at least see /rosout and /parameter_events**. All other topics listed above are published by the robot, not seeing them may mean that they haven't been received yet(try running the command again) or that the robot isn't connected to your network. If there fewer outputs, follow [the robot configuration guide](#irobot-create3-configuration-guide) to connect the robot to your network and update the firmware. 
 
 If you get the full output above, you have verified ROS2 is running and that the node running on the robot is visible to your machine.
 
