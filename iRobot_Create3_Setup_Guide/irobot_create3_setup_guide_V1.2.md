@@ -4,7 +4,16 @@
 
 Follow this document to install ROS2 and setup a ROS2 connection with the iRobot Create3. It is recommended that you follow the installation process outlined below, and refer to the documentation provided by ROS2 and iRobot for detailed instructions. Refer to this document for quick reference as needed.
 
-### For ROS2 Rookies
+### How to Follow This Guide 
+There are three main steps in this guide:
+
+1. Install ROS2 
+2. Setup/configure the iRobot Create3
+3. Install iRobot Create3 Dependencies/Libraries
+
+The steps may be performed in parallel or individually, and are fairly independent of each other. Verifying installation for steps two and three require having ROS2 installed first, so that is the recommended starting point here.
+
+### Extra Resources Learning ROS2
 If this is your first time using ROS2, you will likely want to read through/follow the beginner tutorials provided by ROS2 which introduce the `ros2` command line interface, package system, and `colcon` build system. These tutorials are linked in the [documentation links](#documentation-links) below and are most helpful after installing ROS2. ROS2 is **not** an intuitive system at first glance with several quirks (cough _sourcing_ cough _workspaces_ cough) that may make it seem like black magic, but the tutorials and documentation go a long way towards pulling back to the curtain, so to speak.
 
 
@@ -25,10 +34,12 @@ If this is your first time using ROS2, you will likely want to read through/foll
 | [ROS2: Humble CLI Tutorials](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html) | Introduction to command line tools provided by ROS2 for _debugging!_ | 
 | [ROS2: Humble Client Lib Tutorials](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries.html) | Introduction to ROS2 library creation and build systems. |  
 | [ROS2: All Tutorials](https://docs.ros.org/en/humble/Tutorials.html) | Tutorials for all experience levels whereas the two above are introductory. |
+| [ROS2 Python API: rclpy](https://docs.ros2.org/latest/api/rclpy/index.html) | Python API for using ROS2 interfaces and writing custom ROS2 nodes. |
+| [rclpy Examples](https://github.com/ros2/examples) | Python and C++ example code for nodes, topics, services, and actions. | 
+| [iRobot Create3 Code Examples](https://github.com/iRobotEducation/create3_examples) | Examples of how to control the robot using command topics and actions. **Very** helpful. |
 | [iRobot Create3: Getting Started Guide](https://edu.irobot.com/learning-library/create-3-getting-started) | Hardware documentation and setup guides for first steps. |
 | [iRobot Create3 Documentation](https://iroboteducation.github.io/create3_docs/) | Detailed documentation for configuration and debugging. | 
-| [iRobot Create3: APIs](https://iroboteducation.github.io/create3_docs/api/ros2/) | ROS2 API |
-
+| [iRobot Create3: APIs](https://iroboteducation.github.io/create3_docs/api/ros2/) | ROS2 API for Create3. |
 
 
 # Setup Guide
@@ -40,7 +51,7 @@ Install ROS2 'Humble' or newer on a linux machine. For installation instructions
 
 If you have followed this guide before and simply want to connect to the Create3 as quickly as possible, see the install summary below.
 
-##### Barebones Install
+##### Summary
 This is a summary of [the ROS2 installation guide](https://docs.ros.org/en/humble/Installation.html) and [the colcon installation guide](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html).
 Although not short, these installation steps will provide all the tools needed to use ROS2 on your system.
 
