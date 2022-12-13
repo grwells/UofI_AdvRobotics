@@ -1,8 +1,8 @@
-![irobot education](iRobot-TM-Education_elongated.png)
+[irobot education](iRobot-TM-Education_elongated.png)
 
 # iRobot Create3 Setup Guide
 
-Follow this document to install ROS2 and setup a ROS2 connection with the iRobot Create3. It is recommended that you follow the installation process outlined below, and refer to the documentation provided by ROS and iRobot for detailed instructions. Refer to this document for quick reference as needed.
+Follow this document to install ROS2 and setup a ROS2 connection with the iRobot Create3. It is recommended that you follow the installation process outlined below, and refer to the documentation provided by ROS2 and iRobot for detailed instructions. Refer to this document for quick reference as needed.
 
 ### For ROS2 Rookies
 If this is your first time using ROS2, you will likely want to read through/follow the beginner tutorials provided by ROS2 which introduce the `ros2` command line interface, package system, and `colcon` build system. These tutorials are linked in the [documentation links](#documentation-links) below and are most helpful after installing ROS2. ROS2 is **not** an intuitive system at first glance with several quirks (cough _sourcing_ cough _workspaces_ cough) that may make it seem like black magic, but the tutorials and documentation go a long way towards pulling back to the curtain, so to speak.
@@ -98,7 +98,7 @@ _**TO VERIFY:**_ run `ros2 topic list`. You should see something like:
 ![topic list output](topic_list.png)
 
 If there fewer outputs, you may have a network problem blocking connection to the robot. Possible solutions may also include sourcing a ROS2 setup script after building the project (see `install/setup.sh` or `install/local_setup.sh`). 
-Also make sure that your robot is connected to the same network as the laptop/machine you are running the commmand on.
+Also make sure that your robot is connected to the same network as the laptop/machine you are running the command on.
 
 
 ## iRobot Create3 Configuration Guide
@@ -124,7 +124,7 @@ A summary of the configuration in that guide is included below (no firmware upda
 5. Finally, navigate to the Application configuration page and change namespace field to `/create3-XXXX` where `XXXX` matches the last four digits of the network SSID broadcast by the robot. In reality, this namespace could be anything you want, but the convention is for easy of use in CS453/553.
 
 ###### _**NOTE:**_ 
-The steps above don't include firmware update, so if firmware is older than 2.2 (as of 09/11/2022), update. Detailed configuration instructions and description can be found in the iRobot Create3 Documentation in the table above. 
+The steps above don't include firmware update, so if firmware is older than `H0.0` (as of 12/12/2022), update. See iRobot documentation at this link: [firmware overview](https://iroboteducation.github.io/create3_docs/releases/overview/). 
 
 ## Installing ROS2 iRobot Create3 Dependencies
 There are two steps that must be completed before your ROS2 instance on your computer will be capable of communicating with the iRobot Create3. The first step is to select the IP layer protocol used for transmitting packets from the robot to your machine. The default configuration used by iRobot is called CycloneDDS, but is not installed by default by ROS2.
@@ -136,7 +136,7 @@ The second dependency that must be installed is the library which defines the me
 2. Follow the steps in the verification guide below to make sure that this is used correctly. If you experience problems, try cloning to the `create3_examples_ws/src/` directory that you create in the verification guide.
 
 ## Verification
-The final step is to verify connection between your laptop and the robot. To do this we will install and run the coverage example from [iRobot's Create3 examples repository](https://github.com/iRobotEducation/create3_examples). Follow the instructions in the readme of that repository to create and install a new workspace, then follow the directions in `/create3_coverage` to run the example. If successful, your robot will undock and begin driving across the floor until it hits an obstacle.
+The final step is to verify connection between your laptop and the robot. To do this we will install and run the coverage example from [iRobot's Create3 examples repository](https://github.com/iRobotEducation/create3_examples). Follow the instructions in the README of that repository to create and install a new workspace, then follow the directions in `/create3_coverage` to run the example. If successful, your robot will undock and begin driving across the floor until it hits an obstacle.
 
 ##### Summary
 1. _**Installation**_, do once.
