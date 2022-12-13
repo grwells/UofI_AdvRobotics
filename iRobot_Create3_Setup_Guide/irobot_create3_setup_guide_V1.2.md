@@ -97,8 +97,9 @@ _**TO VERIFY:**_ run `ros2 topic list`. You should see something like:
 
 ![topic list output](topic_list.png)
 
-If there fewer outputs, you may have a network problem blocking connection to the robot. Possible solutions may also include sourcing a ROS2 setup script after building the project (see `install/setup.sh` or `install/local_setup.sh`). 
-Also make sure that your robot is connected to the same network as the laptop/machine you are running the command on.
+If there fewer outputs, follow [the robot configuration guide](#irobot-create3-configuration-guide) to connect the robot to your network and update the firmware.
+
+If you get the full output above, you have verified ROS2 is running and that the node running on the robot is visible to your machine.
 
 
 ## iRobot Create3 Configuration Guide
@@ -127,13 +128,18 @@ A summary of the configuration in that guide is included below (no firmware upda
 The steps above don't include firmware update, so if firmware is older than `H0.0` (as of 12/12/2022), update. See iRobot documentation at this link: [firmware overview](https://iroboteducation.github.io/create3_docs/releases/overview/). 
 
 ## Installing ROS2 iRobot Create3 Dependencies
-There are two steps that must be completed before your ROS2 instance on your computer will be capable of communicating with the iRobot Create3. The first step is to select the IP layer protocol used for transmitting packets from the robot to your machine. The default configuration used by iRobot is called CycloneDDS, but is not installed by default by ROS2.
+There are two steps that must be completed before your ROS2 instance on your computer will be capable of communicating with the iRobot Create3. The first step is to select the IP layer protocol used for transmitting packets from the robot to your machine. The default configuration used by iRobot is called CycloneDDS, but is not installed by default by ROS2. Installing and setting up CycloneDDS was covered in the first part of this guide under ROS2 installation.
 
 The second dependency that must be installed is the library which defines the message types and valid contents accepted by the iRobot Create3 when enclosed in a CycloneDDS packet. To see an example of how a message `type` is formatted, try running `ros2 topic list -t` to see currently observed topics listed, followed by their type.
 
 ##### Install iRobot Create3 Messages
-1. Clone repository to `/opt/ros/humble/src` with command `github clone https://github.com/iRobotEducation/irobot_create_msgs.git`
+1. Clone repository to `/opt/ros/humble/src` with `github clone https://github.com/iRobotEducation/irobot_create_msgs.git`
 2. Follow the steps in the verification guide below to make sure that this is used correctly. If you experience problems, try cloning to the `create3_examples_ws/src/` directory that you create in the verification guide.
+
+###### _**NOTE:**_
+There are significant differences between robot firmware and the Create3 Messages API exposed by the ROS2 package above for certain versions. These differences may break functionality by removing or adding supported topics and actions by changing the name/type of certain interfaces. To avoid headache, make sure your installed firmware matches the version of Create3 Messages API you have installed. 
+
+It is also possible to compare the interfaces exposed/published by the robot with `ros2 <topic/action/service> list -t` to print message types for comparison with the interfaces defined in the Create3 Messages package. If the interface **name** or **type** is different from the robot, you will likely be unable to use that interface. To view all information about an interface installed in a package on your machine first source the workspace then use the command `ros2 interface show <interface-type-here>` to view argument types and structure.
 
 ## Verification
 The final step is to verify connection between your laptop and the robot. To do this we will install and run the coverage example from [iRobot's Create3 examples repository](https://github.com/iRobotEducation/create3_examples). Follow the instructions in the README of that repository to create and install a new workspace, then follow the directions in `/create3_coverage` to run the example. If successful, your robot will undock and begin driving across the floor until it hits an obstacle.
