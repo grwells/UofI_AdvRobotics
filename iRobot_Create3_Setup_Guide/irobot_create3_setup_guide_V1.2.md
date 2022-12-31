@@ -1,4 +1,4 @@
-[irobot education](iRobot-TM-Education_elongated.png)
+![irobot education](iRobot-TM-Education_elongated.png)
 
 # iRobot Create3 Setup Guide
 
