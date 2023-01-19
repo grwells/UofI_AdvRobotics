@@ -144,11 +144,12 @@ There are two steps that must be completed before your ROS2 instance on your com
 The second dependency that must be installed is the library which defines the message types and valid contents accepted by the iRobot Create3 when enclosed in a CycloneDDS packet. To see an example of how a message `type` is formatted, try running `ros2 topic list -t` to see currently observed topics listed, followed by their type.
 
 ##### Install iRobot Create3 Messages
-1. Clone repository to `/opt/ros/humble/src` with `github clone https://github.com/iRobotEducation/irobot_create_msgs.git`
+1. Clone repository to `/opt/ros/humble/src` with `sudo git clone -b humble https://github.com/iRobotEducation/irobot_create_msgs.git`
 2. Follow the steps in the verification guide below to make sure that this is used correctly. If you experience problems, try cloning to the `create3_examples_ws/src/` directory that you create in the verification guide.
 
 ###### _**NOTE:**_
-There are significant differences between robot firmware and the Create3 Messages API exposed by the ROS2 package above for certain versions. These differences may break functionality by removing or adding supported topics and actions by changing the name/type of certain interfaces. To avoid headache, make sure your installed firmware matches the version of Create3 Messages API you have installed. 
+1. There are significant differences between robot firmware and the Create3 Messages API exposed by the ROS2 package above for certain versions. These differences may break functionality by removing or adding supported topics and actions by changing the name/type of certain interfaces. To avoid headache, make sure your installed firmware matches the version of Create3 Messages API you have installed. 
+2. It is also possible to install the messages package in a ROS2 workspace every time you need it. This may help you stay up to date on changes to the package and API, but is not necessary and will add the step of cloning the package to your workflow for each new project.
 
 It is also possible to compare the interfaces exposed/published by the robot with `ros2 <topic/action/service> list -t` to print message types for comparison with the interfaces defined in the Create3 Messages package. If the interface **name** or **type** is different from the robot, you will likely be unable to use that interface. To view all information about an interface installed in a package on your machine first source the workspace then use the command `ros2 interface show <interface-type-here>` to view argument types and structure.
 
@@ -156,7 +157,7 @@ It is also possible to compare the interfaces exposed/published by the robot wit
 The final step is to verify connection between your laptop and the robot. To do this we will install and run the coverage example from [iRobot's Create3 examples repository](https://github.com/iRobotEducation/create3_examples). Follow the instructions in the README of that repository to create and install a new workspace, then follow the directions in `/create3_coverage` to run the example. If successful, your robot will undock and begin driving across the floor until it hits an obstacle.
 
 ##### Summary
-1. _**Installation**_, do once.
+1. _**Installation**_, do once. Run the following in any directory you wish, but `/home/<user-name>/Documents` aka `~` is recommended.
 
 	``` bash
 	mkdir -p create3_examples_ws/src
@@ -170,5 +171,7 @@ The final step is to verify connection between your laptop and the robot. To do 
 2. _**Initialization**_, must be done every time a terminal/session is opened for working on this project. DO NOT run the commands below in the same terminal you executed the build command in. Open a new terminal session and run: `source ~/create3_examples_ws/install/local_setup.sh`
 
 	1. In first terminal run: `ros2 run create3_coverage create3_coverage`. This creates a new ROS2 node on your computer from which you can issue commands to the robot.
+
+		* _**Note:**_ if you have set a namespace for your robot, you will want to run the line above as `ros2 run create3_coverage create3_coverage --ros-args -r __ns:=/CREATE3_NAMESPACE`
 	
 	2. In a second terminal: `ros2 action send_goal robot_namespace_here/coverage create3_examples_msgs/action/Coverage "{explore_duration:{sec: 500, nanosec: 0}, max_runtime:{sec: 1000,nanosec: 0}}"`. This command publishes a command for the robot to fulfill. If the task hangs, with no response from the robot to signal that the command as been received or accepted, verify that you are publishing to the correct namespace such as `create3-0F58`.
