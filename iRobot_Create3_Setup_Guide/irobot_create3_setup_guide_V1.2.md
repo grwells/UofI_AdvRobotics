@@ -72,6 +72,10 @@ Although not short, these installation steps will provide all the tools needed t
 5. Install ROS2 with: 
 
 		sudo apt install ros-humble-desktop
+		
+6. Run:
+
+		echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
 ##### Install CycloneDDS
 CycloneDDS operates as the ROS2 middle-ware(RMW), which manages network communication between ROS2 nodes.
@@ -133,7 +137,7 @@ A summary of the configuration in that guide is included below (no firmware upda
 2. Connect to `Create-XXXX` network from laptop/desktop.
 3. Open browser and navigate to access point(AP) `192.168.10.1`. This AP can later be reached if you know the IP address of the robot, this can be found by scanning the network with [Angry IP](https://angryip.org/), enabling the MAC address, MAC vendor fetchers, and looking for device from 'iRobot' vendor.
 4. Once AP is reached, navigate to the 'Connect' page and use settings to connect to your desired network. 
-5. Finally, navigate to the Application configuration page and change namespace field to `/create3-XXXX` where `XXXX` matches the last four digits of the network SSID broadcast by the robot. In reality, this namespace could be anything you want, but the convention is for easy of use in CS453/553.
+5. Finally, navigate to the Application configuration page and change namespace field to `/create3_XXXX` where `XXXX` matches the last four digits of the network SSID broadcast by the robot. In reality, this namespace could be anything you want, but the convention is for easy of use in CS453/553.
 
 ###### _**NOTE:**_ 
 The steps above don't include firmware update, so if firmware is older than `H0.0` (as of 12/12/2022), update. See iRobot documentation at this link: [firmware overview](https://iroboteducation.github.io/create3_docs/releases/overview/). 
@@ -162,7 +166,7 @@ The final step is to verify connection between your laptop and the robot. To do 
 	``` bash
 	mkdir -p create3_examples_ws/src
 	cd create3_examples_ws/src
-	git clone https://github.com/iRobotEducation/create3_examples.git
+	git clone -b humble https://github.com/iRobotEducation/create3_examples.git
 	cd ..
 	rosdep install --from-path src --ignore-src -yi
 	colcon build 
@@ -172,6 +176,6 @@ The final step is to verify connection between your laptop and the robot. To do 
 
 	1. In first terminal run: `ros2 run create3_coverage create3_coverage`. This creates a new ROS2 node on your computer from which you can issue commands to the robot.
 
-		* _**Note:**_ if you have set a namespace for your robot, you will want to run the line above as `ros2 run create3_coverage create3_coverage --ros-args -r __ns:=/CREATE3_NAMESPACE`
+		* _**Note:**_ if you have set a namespace for your robot, you will want to run the line above as `ros2 run create3_coverage create3_coverage --ros-args -r __ns:=/<create3-namespace>`
 	
 	2. In a second terminal: `ros2 action send_goal robot_namespace_here/coverage create3_examples_msgs/action/Coverage "{explore_duration:{sec: 500, nanosec: 0}, max_runtime:{sec: 1000,nanosec: 0}}"`. This command publishes a command for the robot to fulfill. If the task hangs, with no response from the robot to signal that the command as been received or accepted, verify that you are publishing to the correct namespace such as `create3-0F58`.
