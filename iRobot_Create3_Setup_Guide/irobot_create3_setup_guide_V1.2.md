@@ -172,6 +172,6 @@ The final step is to verify connection between your laptop and the robot. To do 
 
 	1. In first terminal run: `ros2 run create3_coverage create3_coverage`. This creates a new ROS2 node on your computer from which you can issue commands to the robot.
 
-		* _**Note:**_ if you have set a namespace for your robot, you will want to run the line above as `ros2 run create3_coverage create3_coverage --ros-args -r __ns:=/CREATE3_NAMESPACE`
+		* _**Note:**_ if you have set a namespace for your robot, you will want to run the line above as `ros2 run create3_coverage create3_coverage --ros-args -r __ns:=/<create3-namespace>`
 	
 	2. In a second terminal: `ros2 action send_goal robot_namespace_here/coverage create3_examples_msgs/action/Coverage "{explore_duration:{sec: 500, nanosec: 0}, max_runtime:{sec: 1000,nanosec: 0}}"`. This command publishes a command for the robot to fulfill. If the task hangs, with no response from the robot to signal that the command as been received or accepted, verify that you are publishing to the correct namespace such as `create3-0F58`.
