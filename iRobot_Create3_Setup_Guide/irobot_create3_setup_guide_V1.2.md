@@ -74,6 +74,7 @@ Although not short, these installation steps will provide all the tools needed t
 		sudo apt install ros-humble-desktop
 		
 6. Run:
+
 		echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
 ##### Install CycloneDDS
