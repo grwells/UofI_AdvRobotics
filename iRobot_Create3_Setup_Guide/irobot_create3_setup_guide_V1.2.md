@@ -72,6 +72,9 @@ Although not short, these installation steps will provide all the tools needed t
 5. Install ROS2 with: 
 
 		sudo apt install ros-humble-desktop
+		
+6. Run:
+		echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
 ##### Install CycloneDDS
 CycloneDDS operates as the ROS2 middle-ware(RMW), which manages network communication between ROS2 nodes.
