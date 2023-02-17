@@ -29,6 +29,7 @@ class Slash(Node):
 
         # 2 Seperate Callback Groups for handling the bumper Subscription and Action Clients
         cb_Subscripion = MutuallyExclusiveCallbackGroup()
+        #cb_Action = cb_Subscripion
         cb_Action =MutuallyExclusiveCallbackGroup()
 
         # Subscription to Hazards, the callback function attached only looks for bumper hits
@@ -96,9 +97,10 @@ class Slash(Node):
             if self._goal_uuid.status is GoalStatus.STATUS_CANCELED:
                 break # If the goal was canceled, stop looping otherwise loop till finished
             pass
-
-        # Reset the goal ID, nothing should be running
-        self._goal_uuid = None 
+        
+        with lock:
+            # Reset the goal ID, nothing should be running
+            self._goal_uuid = None 
 
 #----------------------------------------------------------------------
 
@@ -131,6 +133,14 @@ class Slash(Node):
     # send goal to async function
         self.sendDriveGoal(drive_goal)
 
+        drive_goal = DriveDistance.Goal()
+        drive_goal.distance = 3.0
+
+        self.sendDriveGoal(drive_goal)
+
+
+
+
 
 if __name__ == '__main__':
     rclpy.init()
@@ -150,5 +160,10 @@ if __name__ == '__main__':
     try:
         exec.spin() # execute slash callbacks until shutdown or destroy is called
     except KeyboardInterrupt:
-        s.get_logger().info('KeyboardInterrupt, shutting down.\n')
-    rclpy.shutdown()
+        print('KeyboardInterrupt, shutting down.')
+        print("Shutting down executor")
+        exec.shutdown()
+        print("Destroying Node")
+        s.destroy_node()
+        print("Shutting down RCLPY")
+        rclpy.try_shutdown()
