@@ -35,12 +35,12 @@
 
 2. Look for the flashing green light on the base of the robot arm to verify that you are in manual guided teaching mode.
 3. Now, while keeping the button depressed, move the robot arm so that it is positioned as desired.
-4. To record the position, enter the TP editor and create a new movement, to the current position.
+4. To record the position, enter the TP editor and create a new movement. By default the position of the movement will have the robot's current position.
 5. Alternatively, open world frame/coordinate screen and examine the tool coordinates or joint positions.
 
 #### Notes
 
-If you don't wish to depress the button while moving the robot, toggle the free-hand teaching option in the menu. You will see that after enabling this option, the light on the base of the robot flashes continuously, even when the button is not pressed.
+_**If you don't wish to depress the button while moving the robot**_, toggle the free-hand teaching option in the menu. You will see that after enabling this option, the light on the base of the robot flashes continuously, even when the button is not pressed.
 
 ![free hand](images/tp_manual_free_hand_scaled_500.jpg)
 
