@@ -11,8 +11,8 @@
 
 1. Turn robot controller switch to "on", matching the second image below.
 
-<img src="images/rc_off_scaled_500.jpg" alt="off" style="width: 250px;"/>
-<img src="images/rc_on_scaled_500.jpg" alt="on" style="width: 250px;"/>
+![off](images/rc_off_scaled_500.jpg)
+![on](images/rc_on_scaled_500.jpg)
 
 2. After TP boots, enter `1111` on TP when asked for key. After entering the code you will have to confirm several more payload screens. In most cases you won't have to worry about these settings. Occasionally payload confirmation will be rejected because of disturbance (vibration). In this case, verify that the robot is not moving, firmly attached to its base, and not in contact with anything else that might be moving. Then restart the robot controller by turn the switch off and then back on. Attempt to confirm payload. This may have to be done several times.
 
