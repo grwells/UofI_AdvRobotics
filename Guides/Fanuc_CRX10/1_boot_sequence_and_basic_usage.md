@@ -30,7 +30,8 @@
 
 1. Press and hold button on back of TP down one click to enter manual guided teaching mode.
 
-![manual button](images/tp_manual_button_scaled_500.jpg)
+`![manual button](images/tp_manual_button_scaled_500.jpg)`
+<img src="images/tp_manual_button_scaled_500.jpg" width="100" height="100"/>
 
 
 2. Look for the flashing green light on the base of the robot arm to verify that you are in manual guided teaching mode.
