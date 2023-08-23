@@ -9,7 +9,7 @@
 
 # Boot Sequence
 
-1. Turn switch to "on", matching the second image below.
+1. Turn robot controller switch to "on", matching the second image below.
 
 ![off](images/rc_off_scaled_500.jpg)
 ![on](images/rc_on_scaled_500.jpg)
@@ -29,7 +29,21 @@
 # Manual Guided Teaching
 
 1. Press and hold button on back of TP down one click to enter manual guided teaching mode.
+
+![manual button](images/tp_manual_button_scaled_500.jpg)
+
+
 2. Look for the flashing green light on the base of the robot arm to verify that you are in manual guided teaching mode.
 3. Now, while keeping the button depressed, move the robot arm so that it is positioned as desired.
 4. To record the position, enter the TP editor and create a new movement, to the current position.
 5. Alternatively, open world frame/coordinate screen and examine the tool coordinates or joint positions.
+
+#### Notes
+
+If you don't wish to depress the button while moving the robot, toggle the free-hand teaching option in the menu. You will see that after enabling this option, the light on the base of the robot flashes continuously, even when the button is not pressed.
+
+![free hand](images/tp_manual_free_hand_scaled_500.jpg)
+
+Also note that _**if the robot is difficult to move in manual teaching mode**_ it may be because the teaching weight is set to heavy. To decrease force required to move robot and get it to move faster, adjust the slider at the base of the menu screen.
+
+![teaching weight](images/tp_manual_guided_teaching_scaled_500.jpg)
