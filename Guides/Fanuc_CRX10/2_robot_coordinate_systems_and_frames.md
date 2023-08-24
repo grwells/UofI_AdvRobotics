@@ -34,3 +34,16 @@ Fanuc defines frames as:
 #### Jog 
 
 ![jog frame](images/frames/jog_frame.png) 
+
+
+## Viewing Frame Relative Position on TP 
+
+If you want to view the robot position relative to a frame follow the steps below on the Teaching Pendant (TP).
+
+1. From the robot render screen, select the three dots at the top right of the render view, positioned directly below the TP enable button and error reset button in the image below.
+
+![three dots option](images/TP_enabled_scaled_500.jpg)
+
+2. After selecting you should see a menu replace the three dots. From this menu select the square with XYZ in it. You should see a sub menu with selectable tabs that show the positions of the robot in world and user frames. The joint positions are also shown.
+
+![frames view](images/frames/frames_render_menu.jpg)
