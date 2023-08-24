@@ -4,7 +4,7 @@ Fanuc defines frames as:
 
 > Frames are used to describe the location and orientation of a position in three-dimensional space. The location is the X, Y, and Z directions from the origin of the reference frame. The orientation is the rotation about the X, Y, and Z axes of the reference frame. When you record a position, its location and orientation are automatically recorded as X, Y, Z, W, P, and R relative to the origin of the frame it uses as a reference.
 
-![location orientation example](images/frames/location_orientation_xyzwpr.jpg)
+![location orientation example](images/frames/location_orientation_xyzwpr.jpg) 
 
 #### Types of Frames 
 
@@ -20,17 +20,17 @@ Fanuc defines frames as:
 
 #### World 
 
-![world frame](images/frames/world_frame.jpg)
+![world frame](images/frames/world_frame.png) 
 
 
-#### Tool
+#### Tool 
 
-![tool frame](images/frames/tool_frame.jpg)
+![tool frame](images/frames/tool_frame.png) 
 
 #### User
 
-![user frame](images/frames/user_frame.png)
+![user frame](images/frames/user_frame.png) 
 
 #### Jog 
 
-![jog frame](images/frames/jog_frame.png)
+![jog frame](images/frames/jog_frame.png) 
