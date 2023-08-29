@@ -16,7 +16,7 @@ This guide covers the basics of creating and editing TP programs on the Fanuc te
 
 <img src="images/tp_programing/20230829_132741.jpg" alt="program menu]" style="width: 250px">
 
-5. Create a new program and name it. _**NOTE:**_ for class projects, please use the convention `<class #>_<your initials>_<project number>_<version number>`
+5. Create a new program and name it. _**NOTE:**_ for class projects, please use the convention `<class #>_<your initials>_<project number>_<version number>`. Note that program names must start with a letter and not contain any special characters, just letters, numbers and underscores.
 
 <img src="images/tp_programing/20230829_132755.jpg" alt="program menu]" style="width: 250px">
 
@@ -28,8 +28,19 @@ Basic workflow:
 1. Enable teaching pendant using the button in the top right corner of the interface. Make sure to clear all warnings.
 2. Guide robot to desired location with manual guided teaching or by jogging.
 3. Click and drag action from programming menu and place in editor space.
+
+<img src"images/tp_programing/20230829_133023.jpg" alt="programming action menu" style="width:250px">
+
+<img src"images/tp_programing/20230829_140507.jpg" alt="programming action menu" style="width:250px">
+
 4. Edit action to fine-tune motion profiles, positioning, etc. To edit action details, tap on an action in your program. 
+
+<img src="images/tp_programing/20230829_140517.jpg" alt="fine-tuning" style="width:250px">
+
+
 5. To verify you program, open play menu by tapping `Play` at the bottom of the screen next to `Robot Operation`, make sure teaching pendant is enabled, and press play. Use the speed slider to modify how quickly the robot performs the movements in your program.
+
+<img src="images/tp_programing/20230829_140548.jpg" alt="running programming" style="width:250px">
 
 
 # Running Your Program 
