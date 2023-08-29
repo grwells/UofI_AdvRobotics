@@ -1,4 +1,4 @@
-# Teach Pendant Language Programming 
+# Teach Pendant Block Language Programming 
 
 This guide covers the basics of creating and editing TP programs on the Fanuc teaching pendant.
 
@@ -38,9 +38,28 @@ Basic workflow:
 
 <img src="images/tp_programing/20230829_140517.jpg" alt="fine-tuning" style="width:250px">
 
+Tapping the drop-down arrow below `Touch Up` in the Details panel will reveal fields for editing User Frame (UF), User Tool (UT), and robot position and orientation parameters.
+
 <img src="images/tp_programing/20230829_140548.jpg" alt="running programming" style="width:250px">
 
 
 5. To verify your program, open play menu by tapping `Play` at the bottom of the screen next to `Robot Operation`, make sure teaching pendant is disabled, and press play. Use the speed slider to modify how quickly the robot performs the movements in your program. 
 
 <img src="images/tp_programing/20230829_144759.jpg" alt="running program" style="width: 250px">
+
+
+# Opening Existing Program
+
+1. Open `Main Menu -> Teaching -> Select Program`.
+2. Tap program from menu to select. Then tap open on the right side of the screen. From here you should be able to edit your program while the TP is enabled and run your program as well.
+
+
+# Notes
+
+#### A Warning About Tool & User Frames
+
+Each action is created with an associated User Frame (UF) and User Tool (UT). These specify the frames used to plan robot motion and give context to the robot position and orientation goal specified by the currently selected action. This means they are not the same as the UF and UT set for the robot controller and if they do not match when the action is executed, an error will be thrown halting program execution.
+
+If you experience this problem, open `Robot Operation -> Jog` and set the UT and UF fields to match those of the actions in your program.
+
+Note that your program can also select the UF for the program to use through an action in the block language.
