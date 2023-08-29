@@ -38,10 +38,9 @@ Basic workflow:
 
 <img src="images/tp_programing/20230829_140517.jpg" alt="fine-tuning" style="width:250px">
 
-
-5. To verify you program, open play menu by tapping `Play` at the bottom of the screen next to `Robot Operation`, make sure teaching pendant is enabled, and press play. Use the speed slider to modify how quickly the robot performs the movements in your program.
-
 <img src="images/tp_programing/20230829_140548.jpg" alt="running programming" style="width:250px">
 
 
-# Running Your Program 
+5. To verify your program, open play menu by tapping `Play` at the bottom of the screen next to `Robot Operation`, make sure teaching pendant is disabled, and press play. Use the speed slider to modify how quickly the robot performs the movements in your program. 
+
+<img src="images/tp_programing/20230829_144759.jpg" alt="running program" style="width: 250px">
