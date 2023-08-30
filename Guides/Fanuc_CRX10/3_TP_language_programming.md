@@ -34,9 +34,11 @@ Basic workflow:
 3. Click and drag action from programming menu and place in editor space.
 
 Before creating action:
+
 <img src="images/tp_programing/20230829_133023.jpg" alt="programming action menu" style="width:250px">
 
 After creating action:
+
 <img src="images/tp_programing/20230829_140507.jpg" alt="programming action menu" style="width:250px">
 
 4. Edit action to fine-tune motion profiles, positioning, etc. To edit action details, tap on an action in your program. 
