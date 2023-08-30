@@ -2,6 +2,10 @@
 
 This guide covers the basics of creating and editing TP programs on the Fanuc teaching pendant.
 
+# Menus and Important Buttons
+
+<img src="images/tp_programing/menus_highlighted.jpg" alt="programming action menu" style="width:250px">
+
 
 # Creating a Program
 
