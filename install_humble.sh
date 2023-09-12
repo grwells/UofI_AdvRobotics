@@ -30,3 +30,4 @@ else
 fi
 
 echo "NOTE: your next step should be testing the installation with 'source /opt/ros/humble/setup.sh'"
+echo "\t* select the correct version of setup.* for your shell. setup.zsh and setup.bash are also available"
