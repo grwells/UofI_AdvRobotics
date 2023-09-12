@@ -5,4 +5,4 @@ This directory hosts all materials and guides developed for the University of Id
 
 If running Ubuntu 22.04 and looking for the quick and dirty installation method, clone this repo and run the following from the root:
 
-        ./install_humble.sh
+    ./install_humble.sh
