@@ -20,7 +20,7 @@ if [[ "$installtype" -eq 1 ]]; then
     sudo apt install ros-humble-desktop
 
 elif [[ "$installtype" -eq 2 ]]; then
-    sudo apt install ros-humble-base
+    sudo apt install ros-humble-ros-base
 
 elif [[ "$installtype" -eq 3 ]]; then
     sudo apt install ros-dev-tools
@@ -28,6 +28,9 @@ elif [[ "$installtype" -eq 3 ]]; then
 else
     echo "erroneous argument"
 fi
+
+# install colcon
+sudo apt install python3-colcon-common-extensions
 
 echo "NOTE: your next step should be testing the installation with 'source /opt/ros/humble/setup.sh'"
 echo "\t* select the correct version of setup.* for your shell. setup.zsh and setup.bash are also available"
